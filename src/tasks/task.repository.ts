@@ -1,12 +1,12 @@
 /* eslint-disable prettier/prettier */
 import { EntityRepository, Repository } from 'typeorm';
-import { CreateTaskDto } from '../tasks/dto/Create-Task-Dto';
+import { CreateTaskDto } from './dto/Create-Task-Dto';
 import { GetTasksFilterDto } from './dto/get-tasks-filter.dto';
 import { TaskStatus } from './task-status.enum';
 import { Task } from './task.entity';
 
 @EntityRepository(Task)
-export class TasksRepository extends Repository<Task> {
+export class TaskRepository extends Repository<Task> {
   async getTasks(filterDto: GetTasksFilterDto): Promise<Task[]> {
     const { status, search } = filterDto;
 
